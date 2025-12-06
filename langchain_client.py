@@ -1,9 +1,10 @@
-from langchain_mcp_adapters.client import MultiServerMCPClient
-from langchain.agents import create_agent
-from langchain_openai import ChatOpenAI
-from dotenv import load_dotenv
 import asyncio
+
+from dotenv import load_dotenv
+from langchain.agents import create_agent
+from langchain_mcp_adapters.client import MultiServerMCPClient
 from langchain_mcp_adapters.tools import load_mcp_tools
+from langchain_openai import ChatOpenAI
 
 load_dotenv()
 
@@ -21,7 +22,7 @@ client = MultiServerMCPClient(
             # Make sure you start your weather server on port 8000
             "url": "http://localhost:8000/sse",
             "transport": "sse",
-        }
+        },
     }
 )
 
